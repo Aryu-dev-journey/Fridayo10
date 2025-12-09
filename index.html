@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeechRecognition</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        border: 0;
+    }
+
+    .box {
+        height: 100vh;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 30px;
+        border-radius: 10px;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: darkgrey;
+    }
+</style>
+
+<body>
+
+    <div class="box">
+        <button id="SpeakBtn" class="btn">SpeakOut</button>
+        <button id="StartBtn" class="btn">Activate</button>
+        <button id="StopBtn" class="btn">Deactivate</button>
+    </div>
+
+    <script src="SpeehRecognition.js"></script>
+</body>
+
+</html>
