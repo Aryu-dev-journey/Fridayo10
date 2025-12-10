@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const activated = document.getElementById("StartBtn");
   const deactivated = document.getElementById("StopBtn");
   const SpeakOut = document.getElementById("SpeakBtn");
+  // const audioPack = - new audioPack("/audio/myVoice.mp3") 
 
   //main recognition func
   const SpeechRecognition =
@@ -24,8 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //-----------------------------------------------------------//
   //         user Commands speakingout component               //
-  //-----------------------------------------------------------//
+  //---------------------------------u--------------------------//
   recognition.onresult = function (event) {
+
+    //==================mp3 custom audiopack===================//\
+
+
+    // let audioPack;
+
+    // if (Command.includes("hello friday")){
+    //   audioPack = new audioPack("audio/hello_friday.mp3");
+    // }
+
+//===============================================================//
+
+
     let current = event.resultIndex;
     let transcript = event.results[current][0].transcript;
     transcript = transcript.toLowerCase()
@@ -36,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (transcript.includes("how are you friday")){
       speakOutResponse("i am fine boss")
+    }
+    if(transcript.includes("open youtube")){
+      window.open("https://www.youtube.com/")
     }
   };
   //----------------------------------------------------------
