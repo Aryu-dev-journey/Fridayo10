@@ -1,6 +1,7 @@
 //-------------------------------------------------------------//
 //                       speech recognition                    //
 //-------------------------------------------------------------//
+
 document.addEventListener("DOMContentLoaded", () => {
   //control buttons for voice recognition
   const activated = document.getElementById("StartBtn");
@@ -21,6 +22,24 @@ document.addEventListener("DOMContentLoaded", () => {
     recognition.start();
   });
 
+  //-----------------------------------------------------------//
+  //         user Commands speakingout component               //
+  //-----------------------------------------------------------//
+  recognition.onresult = function (event) {
+    let current = event.resultIndex;
+    let transcript = event.results[current][0].transcript;
+    transcript = transcript.toLowerCase()
+    console.log(`user commands : ${transcript}`);
+
+    if (transcript.includes("hello friday")) {
+      speakOutResponse("yes boss");
+    }
+    if (transcript.includes("how are you friday")){
+      speakOutResponse("i am fine boss")
+    }
+  };
+  //----------------------------------------------------------
+
   recognition.continuous = true;
 
   recognition.onend = function () {
@@ -31,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     recognition.stop();
   });
 
-  //--------------------------------read out---------------------//
+  //----------------------------ai read out---------------------//
 
   function speakOutResponse(message) {
     const speech = new SpeechSynthesisUtterance();
